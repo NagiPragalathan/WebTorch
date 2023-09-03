@@ -432,6 +432,14 @@ Here's an additional example configuration demonstrating web driver location set
 ## Contributing <a name="contributing"></a>
 
 Contributions to this project are welcome. Feel free to submit bug reports, feature requests, or pull requests on the GitHub repository.
+## Usage:
+  <pre>    -h, --help: Show this help message.
+    --version, --V, --v: Show version information.
+    -test <test_file>: Run tests based on a JSON configuration file.
+    -req <requirements_file>: Create a requirements.txt file.
+    -f <python_file>: Format a single Python file.
+    -fa <directory>: Format all Python files in a directory.
+</pre>
 
 ## License <a name="license"></a>
 
