@@ -1,0 +1,9 @@
+TerminalDesigner
+webdriver_manager==3.8.6
+selenium==4.9.0
+black==23.7.0
+numpy==1.23.5
+Stack_data==0.6.2
+pyautogui==0.9.53
+pytest==7.4.1
+colorama

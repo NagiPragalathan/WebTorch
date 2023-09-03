@@ -1,0 +1,17 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+requirements.txt
+setup.py
+PyLowCodeTest/Stack_data.py
+PyLowCodeTest/Tools.py
+PyLowCodeTest/__init__.py
+PyLowCodeTest/main.py
+PyLowCodeTest/modules_data.py
+PyLowCodeTest/testing.py
+WebTorchX.egg-info/PKG-INFO
+WebTorchX.egg-info/SOURCES.txt
+WebTorchX.egg-info/dependency_links.txt
+WebTorchX.egg-info/entry_points.txt
+WebTorchX.egg-info/requires.txt
+WebTorchX.egg-info/top_level.txt

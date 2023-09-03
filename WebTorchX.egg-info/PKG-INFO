@@ -1,3 +1,20 @@
+Metadata-Version: 2.1
+Name: WebTorchX
+Version: 0.0.1
+Summary: LCTP is a Selenium-based Low-Code Web Testing Automation tool in Python. It simplifies web testing using JSON configuration files, making it easy for testers and developers to automate test scenarios. Also This module provides a command-line interface for various tasks related to the LCTP application. You can use this CLI to run tests, generate requirements files, format Python files, and perform extra functions.
+Home-page: http://nagipragalathan.pythonanywhere.com/
+Author: NagiPragalathan
+Author-email: nagipragalathan@gmail.com
+License: MIT
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENCE.txt
+
 <p align="center">
     <img src="https://106714.fs1.hubspotusercontent-na1.net/hubfs/106714/Low%20Code%20Citizen%20Developer.jpg" height="200">
 </p>
@@ -444,3 +461,11 @@ Contributions to this project are welcome. Feel free to submit bug reports, feat
 ## License <a name="license"></a>
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+Change Log
+==========
+
+0.0.0.1 (03/09/2023)
+--------------------
+
+-First Release

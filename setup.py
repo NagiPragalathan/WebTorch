@@ -11,7 +11,7 @@ VERSION = '0.0.1'
 DESCRIPTION = 'LCTP is a Selenium-based Low-Code Web Testing Automation tool in Python. It simplifies web testing using JSON configuration files, making it easy for testers and developers to automate test scenarios. Also This module provides a command-line interface for various tasks related to the LCTP application. You can use this CLI to run tests, generate requirements files, format Python files, and perform extra functions.'
 
 setup(
-  name='WebTorch',
+  name='WebTorchX',
   version='0.0.1',
   description=DESCRIPTION,
   long_description_content_type='text/markdown',
@@ -29,6 +29,7 @@ setup(
         'Stack_data==0.6.2',
         'pyautogui==0.9.53',
         'pytest==7.4.1',
+        'colorama'
     ],  # Replace with actual dependencies
        entry_points={
         'console_scripts': [
