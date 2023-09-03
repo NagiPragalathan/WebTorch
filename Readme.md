@@ -1,0 +1,438 @@
+<p align="center">
+    <img src="https://106714.fs1.hubspotusercontent-na1.net/hubfs/106714/Low%20Code%20Citizen%20Developer.jpg" height="200">
+</p>
+
+<div align="center">
+  <h3 align="center">
+     WebTorch ( LCTP ) - Selenium Low-Code Web Testing Automation in Python
+  </h3>
+</div>
+
+![GitHub](https://img.shields.io/github/license/NagiPragalathan/No_Code_Testing?style=flat-square&logo=github)
+![GitHub contributors](https://img.shields.io/github/contributors/NagiPragalathan/No_Code_Testing?logo=github&style=flat-square)
+![GitHub top language](https://img.shields.io/github/languages/top/NagiPragalathan/No_Code_Testing?style=flat-square)
+[![Telegram](https://img.shields.io/badge/telegram-nagipragalathan-yellow.svg?logo=telegram)](https://t.me/nagipragalathan)
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
+[![Read FAQ](https://img.shields.io/badge/Ask%20Question-Read%20FAQ-000000)](https://www.newton.so/view?tags=LCTP)
+![GitHub Repo stars](https://img.shields.io/github/stars/NagiPragalathan/No_Code_Testing?style=social)
+[![Twitter Follow](https://img.shields.io/twitter/follow/nagipragalathan?style=social)](https://twitter.com/NagiPragalathan)
+
+<div align="center">
+
+**LCTP** is a Selenium-based Low-Code Web Testing Automation tool in Python. It simplifies web testing using JSON configuration files, making it easy for testers and developers to automate test scenarios.
+
+It's a powerful tool designed to streamline your testing efforts, and we're constantly improving it. However, please note that it's still a work in progress and not ready for production use.
+
+[Getting started](#getting-started) • [Supported opcodes](#supported-opcodes) •
+[Build](#build) • [Test](#test) •
+[Report a bug](https://github.com/)
+• [Questions](https://www.newton.so/view?tags=LCTP)
+
+</div>
+
+<div align="center">
+<img src="https://media3.giphy.com/media/9MbgJKNugBIi6QDwEf/200w.webp?cid=ecf05e474m3sg50anfj1rfi5m8628lnk3tqkd77089nsi4y8&rid=200w.webp&ct=g" height="400" />
+</div>
+
+<div align="center">
+<h2> Fear of coding the testing files use the LCTP to relieve your complexity and upgrade your automation using LCTP for your application. </h2>
+</div>
+
+# Setup:
+## Installation:
+Install LCTP using the following command: `pip install LCTP`
+
+## Usage:
+<hr/>
+<pre>
+{ <br/>
+    "setup":{<br/>
+        "driver_path" : "../../../path", <br/>
+        "auto_install":"true", <br/>
+        "browser":"Opera", <br/>
+        "get":"https://www.saucedemo.com/", <br/>
+        "window" : "maximize" <br/>
+        "screen_recorder":"true",
+        "run_amd_wait":"true"
+    }<br/>
+}<br/>
+</pre>
+<hr/>
+The `setup` keyword is mandatory when using LCTP.
+
+1. `driver_path`: Provide the path to the Selenium Chrome driver executable.
+2. `auto_install`: Automatically download and install the Chrome driver if not found.
+3. `browser`: Specify the browser to be used (e.g., Chrome, Firefox).
+4. `get`: Define the URL of the landing page.
+5. `window`: It's recommended to use "maximize" to maximize the browser window. You can also use "minimize" if needed.
+6. `screen_recorder`: Enable screen recording of the testing session.
+7. `run_and_wait`: Wait for the browser window to run the program.
+
+Auto_install can handle the following browsers:
+<pre>
+        1. Chrome
+        2. ChromeService
+        3. Brave
+        4. BraveService
+        5. Firefox
+        6. FirefoxService
+        7. IE
+        8. IEService
+        9. Edge
+        10. EdgeService
+        11. Opera
+</pre>
+
+## Get Elements  
+### Supported selectors: ['id', 'name', 'class', 'xpath']
+<pre>
+'id': Get elements by their ID attribute.
+'name': Get elements by their Name attribute.
+'class': Get elements by their Class attribute.
+'xpath': Get elements by their XPath.
+</pre>
+
+### Examples:
+<pre>
+{   
+    "setup":{
+        "driver_path" : "../../../path",
+        "auto_install":"true",
+        "browser":"Opera",  //
+        "get":"https://www.saucedemo.com/", //
+        "window" : "maximize" //
+    },
+    "login_testing":{
+        "fill_user_name" : {
+            "id" : "user-name:sk:minimize",
+            "data" : "standard_user"
+        },
+        "fill_password":{
+            "id":"password:sk",
+            "data":"secret_sauce"
+        },
+        "click_login_btn":{
+            "id":"login-button:click"
+        }
+    },
+ }
+</pre>
+
+### Click a list of Elements line by line
+list_data = ['ls_id_clk', 'ls_name_clk', 'ls_xpath_clk']
+
+<pre>
+{   
+    "setup":{
+        "driver_path" : "../../../path",
+        "auto_install":"true",
+        "browser":"Opera",  //
+        "get":"https://www.saucedemo.com/", //
+        "window" : "maximize" //
+    },
+    "login_testing":{
+        "fill_user_name" : {
+            "id" : "user-name:sk:minimize",
+            "data" : "standard_user"
+        },
+        "fill_password":{
+            "id":"password:sk",
+            "data":"secret_sauce"
+        },
+        "click_login_btn":{
+            "id":"login-button:click"
+        }
+    },
+    "home_page":{
+        "ls_id_clk" : ["add-to-cart-sauce-labs-backpack","add-to-cart-sauce-labs-bike-light","add-to-cart-sauce-labs-fleece-jacket"],
+        "ls_name_clk" : ["add-to-cart-test.allthethings()-t-shirt-(red)","add-to-cart-sauce-labs-bolt-t-shirt","add-to-cart-sauce-labs-onesie"]
+    },
+    "view_cart":{
+        "select_select_box":{
+            "xpath":"//*[@id='header_container']/div[2]/div[2]/span/select:select_by_index@2"   
+        },
+        "nav_to_view_cart":{
+            "xpath": "//*[@id='shopping_cart_container']/a:click:minimize",
+            "window":  "maximize"
+        }
+    }
+}
+</pre>
+
+### ScreenShot and ScreenRecorder
+`"screen_recorder":"true"`: Enable screen recording from the beginning to the end of the test, and it is implemented only in the setup query. The recordings are stored in the Test_Video folder path.<br/>
+`"take":"screenshot"`: Take a screenshot of the task at any line of code. The screenshots are stored in the ScreenShots folder path.
+
+### Keywords
+#### Send Keys
+1. `sk`: Send keys to input fields. You can send keys using two ways: `:sk` and `:sk@data`. If `:sk` is used alone, then the data should be declared in another line.
+2. 'c&sk': Clear the input field and send keys, similar to `sk`.
+<pre>
+ "fill_password":{
+            "id":"password:sk",
+            "data":"secret_sauce"
+        },
+ "fill_changepassword":{
+            "id":"changepassword:c&sk",
+            "data":"secret_sauce"
+        },
+</pre>
+
+#### Window Controller
+1. `window`: Use it with any field to maximize or minimize the browser window.
+2. `set_window_position`: Set the position of the browser window.
+<pre>
+"nav_to_view_cart":{
+            "xpath": "//*[@id='shopping_cart_container']/a:click:minimize",
+            "window":  "maximize"
+        }
+"nav_to_view_cart":{
+            "xpath": "//*[@id='shopping_cart_container']/a:click:minimize",
+            "window":  "minimize"
+        }
+</pre>
+
+# Selenium Low-Code Web Testing Automation Hot Keys
+
+This Python module simplifies web testing with Selenium WebDriver using a low-code approach. It enables developers or testers to write test scenarios using JSON configuration files. Below is the documentation for the project, along with code examples for each section.
+
+## Table of Contents
+
+1. [Installation](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#installation)
+2. [Usage](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#usage)
+    - [Setup Configuration](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#setup-configuration)
+    - [Login Testing](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#login-testing)
+    - [Home Page Testing](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#home-page-testing)
+    - [View Cart Testing](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#view-cart-testing)
+    - [Additional Example](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#additional-example)
+3. [JSON Configuration](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#json-configuration)
+    - [Setup Section](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#setup-section)
+    - [Login Testing Section](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#login-testing-section)
+    - [Home Page Section](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#home-page-section)
+    - [View Cart Section](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#view-cart-section)
+4. [Advanced Features](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#advanced-features)
+    - [Screen Recording](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#screen-recording)
+    - [Running and Waiting](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#running-and-waiting)
+    - [Taking Screenshots](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#taking-screenshots)
+    - [Executing Python Code](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#executing-python-code)
+5. [Additional Example Configuration](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#additional-example-configuration)
+6. [Contributing](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#contributing)
+7. [License](https://chat.openai.com/c/517af381-b6b3-4189-b1f3-a61dd0864f01#license)
+
+## Installation <a name="installation"></a>
+
+You can install this module using pip:
+
+```
+pip install selenium-webtest
+```
+## Usage <a name="usage"></a>
+
+To use this module, follow these steps:
+
+1. Create a JSON configuration file for your test scenarios.
+2. Utilize the `WebTestExecutor` class to execute your tests.
+
+Here's how you can structure your JSON configuration file and perform different test actions:
+
+### Setup Configuration <a name="setup-configuration"></a>
+
+The `setup` section in your JSON configuration file is used to set up your test environment. It includes the following parameters:
+
+- `driver_path` (str): The path to your WebDriver executable (e.g., ChromeDriver).
+- `auto_install` (str): Automatically install the WebDriver if it's not found (set to `"true"` to enable).
+- `browser` (str): Specify the browser to use (e.g., "Opera").
+- `get` (str): The URL of the website to be tested.
+- `window` (str): Maximize the browser window (set to "maximize" to enable).
+
+**Example:**
+
+
+<pre>{
+    "setup": {
+        "driver_path": "../../../path",
+        "auto_install": "true",
+        "browser": "Opera",
+        "get": "https://www.saucedemo.com/",
+        "window": "maximize"
+    },
+    ...
+}</pre> 
+
+### Login Testing <a name="login-testing"></a>
+
+The `login_testing` section defines actions related to logging into a website. It includes the following parameters:
+
+- `fill_user_name`: Fill the username input field.
+- `fill_password`: Fill the password input field.
+- `click_login_btn`: Click the login button.
+
+**Example:**
+
+
+<pre>{
+    "login_testing": {
+        "fill_user_name": {
+            "id": "user-name:sk:minimize",
+            "data": "standard_user"
+        },
+        "fill_password": {
+            "id": "password:sk",
+            "data": "secret_sauce",
+            "take": "screenshot"
+        },
+        "click_login_btn": {
+            "id": "login-button:click"
+        }
+    },
+    ...
+}</pre> 
+
+### Home Page Testing <a name="home-page-testing"></a>
+
+The `home_page` section defines actions for interacting with elements on the home page of the website. It includes the following parameters:
+
+- `set_window_position` (optional): Set the position of the browser window.
+- `ls_id_clk`: Click elements by their IDs.
+- `ls_name_clk`: Click elements by their names.
+
+**Example:**
+
+
+<pre>{
+    "home_page": {
+        "set_window_position": [10, 10],
+        "ls_id_clk": [
+            "add-to-cart-sauce-labs-backpack",
+            "add-to-cart-sauce-labs-bike-light",
+            "add-to-cart-sauce-labs-fleece-jacket"
+        ],
+        "ls_name_clk": [
+            "add-to-cart-test.allthethings()-t-shirt-(red)",
+            "add-to-cart-sauce-labs-bolt-t-shirt",
+            "add-to-cart-sauce-labs-onesie"
+        ]
+    },
+    ...
+}</pre> 
+
+### View Cart Testing <a name="view-cart-testing"></a>
+
+The `view_cart` section defines actions for viewing the shopping cart. It includes the following parameters:
+
+- `select_select_box`: Select an option from a dropdown menu by index.
+- `nav_to_view_cart`: Navigate to the shopping cart and maximize the window.
+
+**Example:**
+
+
+<pre>{
+    "view_cart": {
+        "select_select_box": {
+            "xpath": "//*[@id='header_container']/div[2]/div[2]/span/select:select_by_index@2"
+        },
+        "nav_to_view_cart": {
+            "xpath": "//*[@id='shopping_cart_container']/a:click:minimize",
+            "window": "maximize"
+        }
+    },
+    ...
+}</pre> 
+
+### Additional Example Configuration <a name="additional-example"></a>
+
+Here's an additional example of JSON configuration to perform web testing actions:
+
+
+<pre>{
+    "setup": {
+        "web_driver_location": "path",
+        "dict": {
+            "a": {
+                "id": "hello"
+            }
+        }
+    },
+    "login_page": {
+        "msg": "to login into",
+        "id": "id",
+        "name": "name",
+        "xpath": "xpath",
+        "link_text": "LINK_TEXT",
+        "tag_name": "TAG_NAME",
+        "partial_link_text": "PARTIAL_LINK_TEXT",
+        "class_name": "CLASS_NAME",
+        "css_selector": "CSS_SELECTOR",
+        "send_key": "values",
+        "sleep": "2s"
+    }
+}</pre> 
+
+This example illustrates how to configure the web driver location and login page testing actions using various element attributes.
+
+## JSON Configuration <a name="json-configuration"></a>
+
+### Setup Section <a name="setup-section"></a>
+
+The `setup` section includes parameters for configuring the test environment. It must be the first section in your JSON configuration file.
+
+- `driver_path` (str): The path to the WebDriver executable.
+- `auto_install` (str): Automatically install the WebDriver if not found (set to `"true"` to enable).
+- `browser` (str): Specify the browser to use.
+- `get` (str): The URL of the website to test.
+- `window` (str): Maximize the browser window after opening.
+
+### Login Testing Section <a name="login-testing-section"></a>
+
+The `login_testing` section defines actions for logging into a website.
+
+- Each action should be a JSON object with a unique name.
+- Specify the target element using its attributes (e.g., `id`, `xpath`).
+- Use the `data` field to provide input data (e.g., username and password).
+- Use `take` to take a screenshot after the action (optional).
+- Use `click` to perform a click action (optional).
+
+### Home Page Section <a name="home-page-section"></a>
+
+The `home_page` section defines actions for interacting with elements on the home page of the website.
+
+- `set_window_position` (optional): Set the position of the browser window.
+- `ls_id_clk` (list of str): Click elements by their IDs.
+- `ls_name_clk` (list of str): Click elements by their names.
+
+### View Cart Section <a name="view-cart-section"></a>
+
+The `view_cart` section defines actions for viewing the shopping cart.
+
+- `select_select_box` (optional): Select an option from a dropdown menu by index.
+- `nav_to_view_cart` (optional): Navigate to the shopping cart and maximize the window.
+
+## Advanced Features <a name="advanced-features"></a>
+
+### Screen Recording <a name="screen-recording"></a>
+
+Enable screen recording during testing by setting `"screen_recorder"` to `"true"` in the `setup` section.
+
+### Running and Waiting <a name="running-and-waiting"></a>
+
+Set `"run_and_wait"` to `"true"` in the `setup` section to make the script wait for elements to become visible or clickable before performing actions.
+
+### Taking Screenshots <a name="taking-screenshots"></a>
+
+Take screenshots after specific actions by adding `"take": "screenshot"` to those actions in the `login_testing` section.
+
+### Executing Python Code <a name="executing-python-code"></a>
+
+Execute custom Python code during testing by setting `"code"` to `"true"` in a login action. Specify your Python code in the `"python_code"` field or provide a file path using `"python_code_path"`.
+
+## Additional Example Configuration <a name="additional-example-configuration"></a>
+
+Here's an additional example configuration demonstrating web driver location setup and login page testing actions. You can configure various element attributes for testing different web pages.
+
+## Contributing <a name="contributing"></a>
+
+Contributions to this project are welcome. Feel free to submit bug reports, feature requests, or pull requests on the GitHub repository.
+
+## License <a name="license"></a>
+
+This project is licensed under the MIT License. See the LICENSE file for details.
